@@ -1,0 +1,25 @@
+import java.io.*;
+import java.util.*;
+
+public class Distinct {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        File f = new File("D://Projects/testDistinct.txt");
+        BufferedReader fin = new BufferedReader(new FileReader(f));
+        String line;
+        Map<String, String> result = new HashMap<>();
+        while ((line = fin.readLine()) != null) {
+            doSomething(line, result);
+        }
+        System.out.println(result);
+    }
+
+    private static void doSomething(String line, Map<String, String> result) {
+        String[] wordsList = line.split("[-,;:.!?\\s]+");
+        for (String word : wordsList) {
+          if (!result.containsKey(word.toLowerCase().trim())) {
+                result.put(word.toLowerCase(), word);
+            }
+        }
+    }
+}
