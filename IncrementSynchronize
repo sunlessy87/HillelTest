@@ -1,12 +1,21 @@
 public class IncrementSynchronize {
     private int value = 0;
-     synchronized int getNextValue1(){
-     return value++;}
-    private int getNextValue2(){
-        synchronized (this){value++;}
-        return value;}
 
-    private int getNextValue3(){
+    synchronized int getNextValue1() {
+        return value++;
+    }
 
-        return value;}
+    private int getNextValue2() {
+        synchronized (this) {
+            value++;
+        }
+        return value;
+    }
+
+    private int getNextValue3() {
+        synchronized (IncrementSynchronize.class) {
+            value++;
+            return value;
+        }
+    }
 }
