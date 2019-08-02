@@ -11,8 +11,7 @@ public class Distinct {
         while ((line = fin.readLine()) != null) {
             doSomething(line, result);
         }
-        System.out.println(result);
-    }
+}
 
     private static void doSomething(String line, Map<String, String> result) {
         String[] wordsList = line.split("[-,;:.!?\\s]+");
